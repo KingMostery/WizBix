@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.storage.CacheResetOnProcessCanceled.enabled
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -7,11 +9,11 @@ android {
     namespace = "com.mostery.wizbix"
     compileSdk = 34
 
+
     defaultConfig {
         applicationId = "com.mostery.wizbix"
         minSdk = 22
-        targetSdk = 33
-        versionCode = 1
+        targetSdk = 34
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
