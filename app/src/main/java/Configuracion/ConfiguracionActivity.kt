@@ -26,13 +26,7 @@ class ConfiguracionActivity : AppCompatActivity() {
 
         sharedPreferences = getSharedPreferences("Categorias", MODE_PRIVATE)
         // Agregar categorías predeterminadas
-        listaCategorias.add("Electrónica")
-        listaCategorias.add("Ropa")
-        listaCategorias.add("Hogar y jardín")
-        listaCategorias.add("Alimentos y bebidas")
-        listaCategorias.add("Juguetes y juegos")
-        listaCategorias.add("Salud y belleza")
-        listaCategorias.add("Libros y revistas")
+
         cargarCategoriasGuardadas()
     }
 
