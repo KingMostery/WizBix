@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context="Inventario.InventarioActivity">
 
+    <Button
+        android:id="@+id/btnCrearProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Crear Producto"
+        android:onClick="mostrarFormularioCrearProducto" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
