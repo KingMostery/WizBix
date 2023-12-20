@@ -62,16 +62,23 @@ class InventarioActivity : AppCompatActivity() {
                 val codigoAlterno = codigoAlternoEditText.text.toString()
                 val categoriaSeleccionada = categoriaSpinner.selectedItem.toString()
 
-                // Aquí puedes guardar los datos en Firebase
-                guardarProductoEnFirebase(
-                    nombre,
-                    descripcion,
-                    precio,
-                    codigoAlterno,
-                    categoriaSeleccionada
-                )
+                if (nombre.isNotEmpty()  && precio.isNotEmpty() &&
+                    codigoAlterno.isNotEmpty()
+                ){
+                    // Aquí puedes guardar los datos en Firebase
+                    guardarProductoEnFirebase(
+                        nombre,
+                        descripcion,
+                        precio,
+                        codigoAlterno,
+                        categoriaSeleccionada
+                    )
+                    dialog.dismiss()
+                }else {
+                    // Mostrar un mensaje de error si algún campo está vacío
+                    mostrarMensaje("Por favor, complete todos los campos")
+                }
 
-                dialog.dismiss()
             }
             .setNegativeButton("Cancelar") { dialog, _ ->
                 dialog.dismiss()
@@ -80,6 +87,7 @@ class InventarioActivity : AppCompatActivity() {
         val dialog = dialogBuilder.create()
         dialog.show()
     }
+
     private fun mostrarMensaje(mensaje: String) {
         Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
     }
@@ -113,5 +121,7 @@ class InventarioActivity : AppCompatActivity() {
             }
 
     }
+
+
 
 }

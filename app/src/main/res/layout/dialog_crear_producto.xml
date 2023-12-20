@@ -6,30 +6,36 @@
     android:padding="16dp">
 
     <EditText
+        android:layout_marginTop="8dp"
         android:id="@+id/editTextNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nombre" />
 
     <EditText
+        android:layout_marginTop="8dp"
         android:id="@+id/editTextDescripcion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Descripción" />
 
     <EditText
+        android:layout_marginTop="8dp"
         android:id="@+id/editTextPrecio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Precio" />
+        android:hint="Precio"
+        android:inputType="number"/>
 
     <EditText
+        android:layout_marginTop="8dp"
         android:id="@+id/editTextCodigoAlterno"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Código Alterno" />
 
     <Spinner
+        android:layout_marginTop="8dp"
         android:id="@+id/spinnerCategoria"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
