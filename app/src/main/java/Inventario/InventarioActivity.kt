@@ -46,6 +46,7 @@ class InventarioActivity : AppCompatActivity() {
         val codigoAlternoEditText = dialogView.findViewById<EditText>(R.id.editTextCodigoAlterno)
         val categoriaSpinner = dialogView.findViewById<Spinner>(R.id.spinnerCategoria)
 
+
         // Configurar el Spinner con las categorías disponibles
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, categorias)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -60,21 +61,24 @@ class InventarioActivity : AppCompatActivity() {
                 val descripcion = descripcionEditText.text.toString()
                 val precio = precioEditText.text.toString()
                 val codigoAlterno = codigoAlternoEditText.text.toString()
+                val cantidad = "0"
                 val categoriaSeleccionada = categoriaSpinner.selectedItem.toString()
 
-                if (nombre.isNotEmpty()  && precio.isNotEmpty() &&
+
+                if (nombre.isNotEmpty() && precio.isNotEmpty() &&
                     codigoAlterno.isNotEmpty()
-                ){
+                ) {
                     // Aquí puedes guardar los datos en Firebase
                     guardarProductoEnFirebase(
                         nombre,
                         descripcion,
                         precio,
+                        cantidad,
                         codigoAlterno,
                         categoriaSeleccionada
                     )
                     dialog.dismiss()
-                }else {
+                } else {
                     // Mostrar un mensaje de error si algún campo está vacío
                     mostrarMensaje("Por favor, complete todos los campos")
                 }
@@ -96,16 +100,20 @@ class InventarioActivity : AppCompatActivity() {
         nombre: String,
         descripcion: String,
         precio: String,
+        cantidad: String,
         codigoAlterno: String,
         categoria: String
     ) {
         val productosReference =
             databaseReference.child("productos") // Nombre del nodo "productos" en tu base de datos
+        val precioNumerico = precio.toDoubleOrNull() ?: 0.0
+        val cantidadNumerico = cantidad.toInt()
 
         val nuevoProducto = HashMap<String, Any>()
         nuevoProducto["nombre"] = nombre
         nuevoProducto["descripcion"] = descripcion
-        nuevoProducto["precio"] = precio
+        nuevoProducto["precio"] = precioNumerico
+        nuevoProducto["cantidad"] = cantidadNumerico
         nuevoProducto["codigoAlterno"] = codigoAlterno
         nuevoProducto["categoria"] = categoria
 
@@ -121,7 +129,6 @@ class InventarioActivity : AppCompatActivity() {
             }
 
     }
-
 
 
 }

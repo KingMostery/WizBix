@@ -34,6 +34,8 @@
         android:layout_height="wrap_content"
         android:hint="Código Alterno" />
 
+
+
     <Spinner
         android:layout_marginTop="8dp"
         android:id="@+id/spinnerCategoria"
