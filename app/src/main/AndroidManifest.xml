@@ -13,6 +13,9 @@
         android:theme="@style/Theme.WizBix"
         tools:targetApi="31">
         <activity
+            android:name="Inventario.ProductosActivity"
+            android:exported="false" />
+        <activity
             android:name="Configuracion.ConfiguracionActivity"
             android:exported="false" />
         <activity

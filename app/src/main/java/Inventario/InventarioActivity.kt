@@ -1,6 +1,8 @@
 package Inventario
 
+import Ventas.VentasActivity
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -129,6 +131,9 @@ class InventarioActivity : AppCompatActivity() {
             }
 
     }
+   fun onClickverProductos(view: View){
+       val intent=Intent(this,ProductosActivity::class.java)
+       startActivity(intent)
+   }
 
-
-}
+}//Fin codigo
