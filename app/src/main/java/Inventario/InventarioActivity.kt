@@ -36,7 +36,6 @@ class InventarioActivity : AppCompatActivity() {
         firebaseDatabase = FirebaseDatabase.getInstance()
         databaseReference = firebaseDatabase.reference
 
-        // Resto de la lógica de tu actividad...
     }
 
     fun mostrarFormularioCrearProducto(view: View) {

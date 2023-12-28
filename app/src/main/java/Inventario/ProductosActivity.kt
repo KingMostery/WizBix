@@ -32,13 +32,15 @@ class ProductosActivity : AppCompatActivity() {
     private fun obtenerProductosDesdeFirebase(recyclerView: RecyclerView) {
         databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val listaProductos: MutableList<String> = mutableListOf()
+                val listaProductos: MutableList<Producto> = mutableListOf()
 
                 for (productoSnapshot in dataSnapshot.children) {
-                    val nombreProducto =
-                        productoSnapshot.child("nombre").getValue(String::class.java)
-                    nombreProducto?.let {
-                        listaProductos.add(it)
+                    val nombre = productoSnapshot.child("nombre").getValue(String::class.java)
+                    val precio = productoSnapshot.child("precio").getValue(Double::class.java)
+
+                    if (nombre != null && precio != null) {
+                        val producto = Producto(nombre, precio)
+                        listaProductos.add(producto)
                     }
                 }
 
@@ -51,8 +53,13 @@ class ProductosActivity : AppCompatActivity() {
         })
     }
 
-    private fun mostrarProductosEnRecyclerView(recyclerView: RecyclerView, listaProductos: List<String>) {
+    private fun mostrarProductosEnRecyclerView(
+        recyclerView: RecyclerView,
+        listaProductos: List<Producto>
+
+    ) {
         val adaptador = ProductoAdapter(listaProductos)
         recyclerView.adapter = adaptador
     }
+    
 }

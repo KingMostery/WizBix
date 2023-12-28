@@ -1,19 +1,35 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="#FFFFFF"
+    android:elevation="4dp"
+    android:padding="16dp">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
+        <!-- Contenido de tu producto -->
         <TextView
             android:id="@+id/textViewNombreProducto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Nombre del Producto"
             android:textSize="18sp"
-            android:textStyle="bold"
-            android:text="Nombre del Producto" />
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewPrecioProducto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Precio del Producto"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <!-- Agrega otros elementos aquí para mostrar información adicional del producto -->
 
     </LinearLayout>
+</androidx.cardview.widget.CardView>
