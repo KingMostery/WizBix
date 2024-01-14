@@ -37,9 +37,10 @@ class ProductosActivity : AppCompatActivity() {
                 for (productoSnapshot in dataSnapshot.children) {
                     val nombre = productoSnapshot.child("nombre").getValue(String::class.java)
                     val precio = productoSnapshot.child("precio").getValue(Double::class.java)
+                    val cantidad = productoSnapshot.child("cantidad").getValue(Int::class.java)
 
-                    if (nombre != null && precio != null) {
-                        val producto = Producto(nombre, precio)
+                    if (nombre != null && precio != null && cantidad != null) {
+                        val producto = Producto(nombre, precio, cantidad)
                         listaProductos.add(producto)
                     }
                 }
@@ -61,5 +62,5 @@ class ProductosActivity : AppCompatActivity() {
         val adaptador = ProductoAdapter(listaProductos)
         recyclerView.adapter = adaptador
     }
-    
+
 }
